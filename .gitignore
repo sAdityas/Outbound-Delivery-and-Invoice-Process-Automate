@@ -1,6 +1,8 @@
 # Node and React
 node_modules
 build
+!*.py
+!backend/
 
 # Python
 __pycache__/

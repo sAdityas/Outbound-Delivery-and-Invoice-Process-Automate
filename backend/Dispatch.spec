@@ -3,7 +3,7 @@ from PyInstaller.utils.hooks import collect_submodules, collect_data_files
 from PyInstaller.building.build_main import Analysis, PYZ, EXE, COLLECT
 
 # Main entry point
-entry_point = "app.py"
+entry_point = "main.py"
 
 # Collect hidden imports
 hidden_imports = [

@@ -19,7 +19,7 @@ from excelReader import excelReader
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/main', methods=['POST'])
+@app.route('/main', methods=['POST','GET'])
 def main_api():
     try:
         uploaded_file = request.files.get('file')
@@ -27,7 +27,8 @@ def main_api():
             return jsonify({'error': 'No file uploaded'}), 400
 
         os.makedirs('temp', exist_ok=True)
-        file_path = os.path.join('temp', uploaded_file.filename)
+        filename = uploaded_file.filename or "uploaded_file"
+        file_path = os.path.join('temp', filename)
         uploaded_file.save(file_path)
 
         # Read columns with new headers from Excel
@@ -60,15 +61,15 @@ def main_api():
 
                 gotoVL01N(session)
                 time.sleep(1)
-
-                delqty_obj = detailsVL01N(session, SaleOrder[i], Plant[i])
-                delqty = delqty_obj.Text if delqty_obj else 'N/A'
+                
+                detailsVL01N(session, SaleOrder[i], Plant[i])
 
                 PGI(session)
-                batchInputVL01N(session, Quantity[i], delqty)
+                batchInputVL01N(session, Quantity[i])
                 processDocument(session, Partner_ID[i])
 
                 OD = getDeliveryNumber(session)
+                print(OD)
 
                 gotoVF01(session)
                 enterDeliveryNumber(session, OD, BillType[i])

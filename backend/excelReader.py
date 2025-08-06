@@ -7,7 +7,7 @@ def excelReader(filepath):
     df.columns = df.columns.str.strip()
 
     # Map columns based on uploaded format
-    Document_Date = pd.to_datetime(df['Document Date']).dt.strftime('%d.%m.%Y').tolist()
+    Document_Date = pd.to_datetime(df['Document Date'], dayfirst=True).dt.strftime('%d.%m.%Y').tolist()
     Sales_Document_Type = df['Sales Document Type'].tolist()
     Sales_Document = df['Sales Document'].tolist()
     Quantity = df['Order Quantity (Item)'].tolist()

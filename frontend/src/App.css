@@ -17,3 +17,137 @@
   from { opacity: 0; transform: translateY(10px) }
   to { opacity: 1; transform: translateY(0) }
 }
+
+/* ===========================
+  Buttons
+=========================== */
+.btn {
+  padding: 10px 16px;
+  font-size: 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  margin-right: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background-color: #005580; /* Industrial Blue */
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #004466;
+  box-shadow: 0px 4px 4px rgba(0, 85, 128, 0.3);
+}
+
+.btn-secondary {
+  background-color: #ff9800; /* Bright Amber */
+  color: #111;
+  margin-left: 10px;
+  font-weight: 550;
+}
+.btn-secondary:hover {
+  background-color: #e68900;
+  box-shadow: 0px 4px 4px rgba(255, 152, 0, 0.3);
+}
+
+/* ===========================
+  Forms
+=========================== */
+.app-form {
+  margin-bottom: 30px;
+}
+
+/* ===========================
+  Errors
+=========================== */
+.error-message,
+.general-error {
+  color: #c62828;
+  background-color: #ffe9e9;
+  border-left: 4px solid #c62828;
+  padding: 10px 12px;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+/* ===========================
+  Results Table
+=========================== */
+.results-section {
+  margin: 30px auto;
+}
+
+.results-table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #9fa8da;
+}
+
+.results-table th,
+.results-table td {
+  border: 1px solid #9fa8da;
+  padding: 10px 12px;
+  font-size: 15px;
+  vertical-align: middle; /* 👈 Ensures text is aligned centrally */
+}
+
+.material {
+  display: inline-block;
+  min-width: 225px; /* 👈 Ensure enough space for longer material names */
+  /* white-space: nowrap;  👈 Keep long text in a single line */
+}
+
+
+.results-table th {
+  background-color: #e3f2fd; /* Light Blue */
+  color: #0d47a1;
+  font-weight: bold;
+}
+
+.results-table tr {
+  transition: background-color 0.2s ease;
+}
+
+.results-table tr:hover {
+  background-color: #ccc;
+}
+
+.results-table tr.selected {
+  background-color: #c8e6ff !important; /* Selected Row Highlight */
+}
+
+
+.status-success {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.status-failure {
+  color: #b71c1c;
+  font-weight: bold;
+}
+
+.error-cell {
+  color: #b71c1c;
+}
+
+/* ===========================
+  Responsive Styles
+=========================== */
+@media (max-width: 600px) {
+  .app-container {
+    padding: 12px;
+  }
+  .results-table th,
+  .results-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+  .btn {
+    color: #0d47a1;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}

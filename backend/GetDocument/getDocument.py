@@ -36,3 +36,17 @@ def documentVF01(session):
         print(f"Error while fetching document number: {e}")
     
     raise Exception("Error: Document Number Not Found")
+
+
+def checkError(session):
+    try:
+        time.sleep(0.7)
+        status_bar_text = session.findById('wnd[0]/sbar').Text
+        
+        
+        return status_bar_text  # return the first valid document number
+        
+    except Exception as e:
+        print(f"Error while fetching document number: {e}")
+    
+        raise Exception("Error: Document Number Not Found")

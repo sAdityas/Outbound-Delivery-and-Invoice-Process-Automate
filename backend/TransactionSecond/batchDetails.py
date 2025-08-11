@@ -15,7 +15,6 @@ def batchInputVL01N(session, Quantity):
                 break
             batch_quantity = int(qty_text)
             bQty.append(batch_quantity)
-            print(bQty)
         except Exception as e:
             return  # Exit function if any error occurs
 

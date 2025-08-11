@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Scanner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .scanner-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .scanner-icon {
+            font-size: 60px;
+            cursor: pointer;
+            color: #4285f4;
+            margin-bottom: 10px;
+        }
+        .scanner-text {
+            font-size: 18px;
+            color: #666;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .status-pending {
+            color: #e67e22;
+        }
+        .status-paid {
+            color: #27ae60;
+        }
+        .demo-note {
+            background-color: #fffde7;
+            padding: 15px;
+            border-left: 4px solid #ffd600;
+            margin: 20px 0;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <h1>Invoice Management</h1>
+    
+    <div class="demo-note">
+        <strong>Demo Note:</strong> This is a simulation. Click the scanner icon to simulate scanning an invoice. 
+        In a real application, this would use your device camera to capture an invoice image and extract the invoice number.
+    </div>
+    
+    <div class="scanner-icon" id="scannerButton">
+        <i class="fas fa-barcode"></i>
+        <div class="scanner-text">Click to Scan Invoice</div>
+    </div>
+    
+    <table id="invoiceTable">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Vendor</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Invoice Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2023-05-15</td>
+                <td>Office Supplies Co.</td>
+                <td>₹245.50</td>
+                <td class="status-pending">Pending</td>
+                <td class="invoice-number"></td>
+            </tr>
+            <tr>
+                <td>2023-05-18</td>
+                <td>Tech Solutions Inc.</td>
+                <td>₹1,200.00</td>
+                <td class="status-paid">Paid</td>
+                <td class="invoice-number"></td>
+            </tr>
+            <tr>
+                <td>2023-05-20</td>
+                <td>Marketing Partners LLC</td>
+                <td>₹850.75</td>
+                <td class="status-pending">Pending</td>
+                <td class="invoice-number"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById('scannerButton').addEventListener('click', function() {
+            // Simulate scanning process
+            const scanningText = this.querySelector('.scanner-text');
+            scanningText.textContent = 'Scanning...';
+            
+            // In a real app, this would be the OCR processing time
+            setTimeout(() => {
+                // Find the first empty invoice number cell
+                const emptyCells = document.querySelectorAll('.invoice-number:empty');
+                if (emptyCells.length > 0) {
+                    // Generate a random invoice number for demo purposes
+                    const randomInvoiceNumber = 'INV-' + Math.floor(100000 + Math.random() * 900000);
+                    
+                    // Fill in the first empty cell
+                    emptyCells[0].textContent = randomInvoiceNumber;
+                    
+                    // Show success message
+                    scanningText.textContent = 'Invoice scanned successfully!';
+                    
+                    // Reset after 2 seconds
+                    setTimeout(() => {
+                        scanningText.textContent = 'Click to Scan Invoice';
+                    }, 2000);
+                } else {
+                    scanningText.textContent = 'All invoices already have numbers!';
+                    
+                    // Reset after 2 seconds
+                    setTimeout(() => {
+                        scanningText.textContent = 'Click to Scan Invoice';
+                    }, 2000);
+                }
+            }, 1500); // Simulate processing delay
+        });
+    </script>
+</body>
+</html>

@@ -16,7 +16,7 @@ def checkRows(session,SaleOrder,Plant):
                     f"tblSAPMV50ATC_LIPS_{table_suffix}/ctxtLIPS-MATNR[1,{i}]"
                 ).Text
                 flag+=1
-                if nextText == '':
+                if nextText == '': 
                     flag -= 1
                     return flag
             except Exception:

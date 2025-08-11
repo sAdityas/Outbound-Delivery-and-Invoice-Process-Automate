@@ -4,7 +4,7 @@ import pythoncom
 def VL01N(session):
     pythoncom.CoInitialize()
     try:
-        print("inVL01N")
+        print("inVL01N") 
         session.findById('wnd[0]').maximize()
         session.findById('wnd[0]/tbar[0]/okcd').text = '/nVL01N'
         session.findById('wnd[0]').sendVKey(0)

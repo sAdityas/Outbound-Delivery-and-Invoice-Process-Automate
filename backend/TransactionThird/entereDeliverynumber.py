@@ -13,4 +13,4 @@ def enterDeliveryNumber(session, OD, BillType):
         session.findById('wnd[0]/usr/tblSAPMV60ATCTRL_ERF_FAKT/ctxtKOMFK-VBELN[0,0]').text = OD
         session.findById('wnd[0]').sendVKey(0)
     except Exception as e:
-        raise Exception('❌ Error entering Delivery Number')
+        raise Exception('❌ Error entering Delivery Number') 

@@ -11,7 +11,7 @@ export const Form = ({file,setFile,loading,setLoading,setError,setGeneralError,s
           setLoading(true);
           setError(null);
           setGeneralError(null);
-          setResults([]);
+          setResults([]); 
       
           const formData = new FormData();
           if (!file) {

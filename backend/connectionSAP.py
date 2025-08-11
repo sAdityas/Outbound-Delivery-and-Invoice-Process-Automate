@@ -15,7 +15,7 @@ def connection():
         application = SapGuiAuto.GetScriptingEngine
         session = application.Children(0).Children(0)
         Client = session.info.Client
-        User = session.info.User
+        User = session.info.User 
         return session
     except:
         raise Exception('Error: SAP is not logged in OR User Cancelled the Transaction')

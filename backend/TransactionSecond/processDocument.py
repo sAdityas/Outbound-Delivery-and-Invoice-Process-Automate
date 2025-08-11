@@ -37,4 +37,4 @@ def processDocument(session, Partner_ID):
         session.findById('wnd[0]/usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\\02/ssubSUBSCREEN_BODY:SAPMV50A:1104/tblSAPMV50ATC_LIPS_PICK/txtLIPSD-G_LFIMG[5,0]').caretPosition = 0
         session.findById('wnd[0]/tbar[1]/btn[20]').press()
     except Exception as e:
-        raise e
+        raise e 

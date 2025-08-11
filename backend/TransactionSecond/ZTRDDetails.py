@@ -14,7 +14,7 @@ def TRD(session):
             session.findById(
                 f"wnd[0]/usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\\{tab_code}/ssubSUBSCREEN_BODY:SAPMV50A:1104/subSUBSCREEN_ICONBAR:SAPMV50A:1708/btnBT_MKAL_T"
             ).press()
-            # Unselect first row
+            # Unselect first row 
             session.findById(
                 f"wnd[0]/usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\\{tab_code}/ssubSUBSCREEN_BODY:SAPMV50A:1104/tblSAPMV50ATC_LIPS_PICK"
             ).getAbsoluteRow(0).selected = False

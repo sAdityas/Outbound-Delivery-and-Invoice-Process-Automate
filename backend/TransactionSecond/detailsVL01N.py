@@ -9,7 +9,7 @@ CYAN = '\x1b[36m'
 RESET = '\x1b[0m'
 
 def detailsVL01N(session, SaleOrder, Plant):
-    try:
+    try: 
         session.findById('wnd[0]/usr/ctxtLIKP-VSTEL').setFocus()
         session.findById('wnd[0]/usr/ctxtLV50C-VBELN').setFocus()
         session.findById('wnd[0]/usr/ctxtLIKP-VSTEL').caretPosition = 0

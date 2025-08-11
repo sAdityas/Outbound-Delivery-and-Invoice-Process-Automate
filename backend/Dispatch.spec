@@ -59,7 +59,7 @@ coll = COLLECT(
     a.binaries,
     a.zipfiles,
     a.datas,
-    strip=False,
+    strip=False, 
     upx=False,
     name="Dispatch",
 )

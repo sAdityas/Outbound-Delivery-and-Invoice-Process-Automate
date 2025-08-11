@@ -39,7 +39,7 @@ def documentVF01(session):
 
 
 def checkError(session):
-    try:
+    try: 
         time.sleep(0.7)
         status_bar_text = session.findById('wnd[0]/sbar').Text
         

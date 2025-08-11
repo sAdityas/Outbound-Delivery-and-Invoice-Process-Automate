@@ -29,7 +29,7 @@ build/
 develop-eggs/
 dist/
 downloads/
-temp/Jayesh/
+backend/temp/
 eggs/
 .eggs/
 lib/

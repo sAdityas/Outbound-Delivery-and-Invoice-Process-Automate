@@ -12,7 +12,7 @@ def batchInputVL01N(session, Quantity):
             qty_field = session.findById(qty_path)
             qty_text = qty_field.text.replace(',', '').strip()
             if qty_text == '':
-                break
+                break 
             batch_quantity = int(qty_text)
             bQty.append(batch_quantity)
         except Exception as e:

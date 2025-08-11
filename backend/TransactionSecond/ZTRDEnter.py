@@ -19,4 +19,4 @@ def EnterZtrd(session, SaleOrder, Plant):
         session.findById('wnd[0]/usr/ctxtLV50C-VBELN').text = SaleOrder
         session.findById('wnd[0]').sendVKey(0)
     except Exception as e:
-        raise
+        raise 

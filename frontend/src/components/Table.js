@@ -11,7 +11,7 @@ function Table( {results, selectedIndexes, setSelectedIndexes}) {
         );
       };
   return (
-    <div>
+    <div> 
          <table className="results-table">
               <thead>
                 <tr>

@@ -158,7 +158,7 @@ export default function ZTOL() {
         <button
         className='btn-primary'
         type='button'
-        onClick={handleNavigate}>
+        onClick={handleNavigate}> 
             <span>Go to ZDOM</span>
         </button>
         </div>

@@ -111,3 +111,4 @@ secrets.json
 instance/
 *.db
 *.sqlite3
+*.csv

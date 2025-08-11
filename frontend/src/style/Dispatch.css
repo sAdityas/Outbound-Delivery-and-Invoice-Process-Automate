@@ -37,29 +37,37 @@
   
   .btn-primary {
     padding: 10px 25px;
-    background: linear-gradient(90deg,#344FA3,#1ebdf7 90%);
+    background-image: linear-gradient(90deg,#344FA3,#1ebdf7 90%);
     color: #fff;
     border: none;
     border-radius: 6px;
     font-weight: 700;
     font-size: 1.01rem;
     cursor: pointer;
-    transition: background 0.17s, box-shadow 0.17s;
+    transition: all 0.5s ease;
     margin-right: 9px;
     box-shadow: 0 1.5px 5px 0 rgba(20,52,109,0.06);
+    background-size: 200% 200%;
   }
   
+
+  @keyframes bgRotate {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+    
   .btn-primary:disabled {
     background: #b0bed9;
     color: #fff;
-    cursor: not-allowed;
+    cursor: url('../style/logo.png');
     opacity: 0.85;
   }
   
   .btn-primary:not(:disabled):hover,
   .btn-primary:not(:disabled):focus {
-    background: linear-gradient(90deg,#2863b8,#15b3e7 100%);
-    box-shadow: 0 2px 12px 0 rgba(30,130,180,0.13);
+    
+    animation: bgRotate 4s ease-in-out infinite;
     outline: none;
   }
   
@@ -95,7 +103,6 @@
     width: 100%;
     border-collapse: collapse;
     background: #fff;
-    border-radius: 11px;
     overflow: hidden;
     box-shadow: 0 2px 7px rgba(40,69,128,0.11);
   }
@@ -117,7 +124,9 @@
     font-size: 1.03rem;
   }
   
-  .results-table th {
+  .results-table th 
+{
+    border: #242d3a 2px solid;
     color: #25396f;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -126,7 +135,8 @@
   }
   
   .results-table tr {
-    transition: background-color 0.16s;
+    border-top: #242d3a 2px solid;
+    transition: background-color 0.18s ;
   }
   
   .results-table tbody tr:hover, .results-table tr.selected {
@@ -135,7 +145,7 @@
   }
   
   .results-table td {
-    border-bottom: 1px solid #f1f4fa;
+    border: 1px solid #000000;
     color: #242d3a;
   }
   
@@ -148,7 +158,7 @@
     font-weight: 700;
   }
   .error-cell {
-    color: #e47a17;
+    color: #c37023;
     max-width: 225px;
     word-break: break-word;
   }

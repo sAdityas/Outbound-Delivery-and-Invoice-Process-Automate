@@ -71,4 +71,5 @@ def batchInputVL01N(session, Quantity):
             except:
                 pass
         except Exception as e:
-            raise (e)
+            raise (e) 
+ 

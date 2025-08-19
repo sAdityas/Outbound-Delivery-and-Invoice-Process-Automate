@@ -42,4 +42,5 @@ function Table( {results, selectedIndexes, setSelectedIndexes}) {
   )
 }
 
-export default Table
+export default Table 
+ 

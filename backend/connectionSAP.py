@@ -18,4 +18,5 @@ def connection():
         User = session.info.User 
         return session
     except:
-        raise Exception('Error: SAP is not logged in OR User Cancelled the Transaction')
+        raise Exception('Error: SAP is not logged in OR User Cancelled the Transaction') 
+ 

@@ -10,4 +10,5 @@ def VL01N(session):
         session.findById('wnd[0]').sendVKey(0)
         time.sleep(0.5)
     except Exception as e:
-        raise 
+        raise  
+ 

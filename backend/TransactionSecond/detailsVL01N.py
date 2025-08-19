@@ -26,4 +26,5 @@ def detailsVL01N(session, SaleOrder, Plant):
         session.findById('wnd[0]/usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\\02').select()
         session.findById('wnd[0]/usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\\02/ssubSUBSCREEN_BODY:SAPMV50A:1104/tblSAPMV50ATC_LIPS_PICK/txtLIPSD-G_LFIMG[5,0]').setFocus()
     except Exception as e:
-        raise Exception('❌ Error entering VL01N details')
+        raise Exception('❌ Error entering VL01N details') 
+ 

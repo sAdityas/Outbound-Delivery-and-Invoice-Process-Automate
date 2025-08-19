@@ -49,4 +49,5 @@ def checkError(session):
     except Exception as e:
         print(f"Error while fetching document number: {e}")
     
-        raise Exception("Error: Document Number Not Found")
+        raise Exception("Error: Document Number Not Found") 
+ 

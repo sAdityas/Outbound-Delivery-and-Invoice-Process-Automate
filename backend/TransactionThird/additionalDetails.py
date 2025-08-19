@@ -22,4 +22,5 @@ def additionalDetails(session, Vehicle_Number, LR_Number, LR_Date, Number_of_Pac
         session.findById('wnd[0]').sendVKey(0)
         session.findById('wnd[0]/tbar[0]/btn[11]').press()
     except Exception as e: 
-        raise Exception('Error: While Entering the Header Details')
+        raise Exception('Error: While Entering the Header Details') 
+ 

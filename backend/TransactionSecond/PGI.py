@@ -15,4 +15,5 @@ def PGI(session):
         matnr_field.setFocus()
         session.findById('wnd[0]/usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\\01/ssubSUBSCREEN_BODY:SAPMV50A:1102/subSUBSCREEN_ICONBAR:SAPMV50A:1708/btnBT_CHSP_T').press()
     except Exception as e:
-        raise e 
+        raise e  
+ 

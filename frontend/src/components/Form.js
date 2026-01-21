@@ -63,4 +63,5 @@ export const Form = ({file,setFile,loading,setLoading,setError,setGeneralError,s
 }
 
 
-export default Form;
+export default Form; 
+ 

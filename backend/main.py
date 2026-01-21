@@ -293,5 +293,11 @@ def has_delivery_quantity(session):
 
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     app.run(debug=True, host='0.0.0.0', port=5050, use_reloader = False)
  
+=======
+    app.run(debug=True, host='0.0.0.0', port=5050)
+  
+ 
+>>>>>>> e8b807375e0a17248cc438c71da2530ab5532fa8

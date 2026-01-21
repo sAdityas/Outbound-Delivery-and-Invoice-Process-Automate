@@ -186,4 +186,55 @@ input::file-selector-button{
     flex-direction: column;
     gap: 10px;
   }
+<<<<<<< HEAD
 }
+=======
+  
+  .results-table tr {
+    transition: background-color 0.16s;
+  }
+  
+  .results-table tbody tr:hover, .results-table tr.selected {
+    background: #d9f1fc;
+    cursor: pointer;
+  }
+  
+  .results-table td {
+    border-bottom: 1px solid #f1f4fa;
+    color: #242d3a;
+  }
+  
+  .status-success {
+    color: #149849;
+    font-weight: 700;
+  }
+  .status-failure {
+    color: #e03b3b;
+    font-weight: 700;
+  }
+  .error-cell {
+    color: #e47a17;
+    max-width: 225px;
+    word-break: break-word;
+  }
+  
+  @media (max-width: 780px) {
+    .app-container {
+      padding: 18px 4vw;
+      min-width: 0;
+    }
+    .results-table th, .results-table td {
+      padding: 8px 6px;
+      font-size: 0.97rem;
+    }
+    .app-form {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+  }
+  
+
+  
+ 
+>>>>>>> e8b807375e0a17248cc438c71da2530ab5532fa8

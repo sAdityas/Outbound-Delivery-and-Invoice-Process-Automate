@@ -29,4 +29,9 @@ body {
 @keyframes fadeInContainer {
   from { opacity: 0; transform: translateY(10px) }
   to { opacity: 1; transform: translateY(0) }
+<<<<<<< HEAD
 }  */
+=======
+}  
+ 
+>>>>>>> e8b807375e0a17248cc438c71da2530ab5532fa8

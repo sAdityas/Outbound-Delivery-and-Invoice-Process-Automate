@@ -30,4 +30,5 @@ def checkRows(session,SaleOrder,Plant):
                     return tryCheck(flag,tab_try, subscreen_code, table_suffix)
                 except Exception as e:
                     raise Exception(f"Tab {tab_try}, subscreen {subscreen_code}, table {table_suffix} failed: {e}")
-    return 0
+    return 0 
+ 

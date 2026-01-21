@@ -113,3 +113,7 @@ instance/
 *.db
 *.sqlite3
 *.csv
+*.csdv
+*.log
+*.ico
+*.spec

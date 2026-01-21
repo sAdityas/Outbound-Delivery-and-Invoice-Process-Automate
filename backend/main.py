@@ -5,8 +5,12 @@ import pandas as pd
 import time
 
 # SAP modules
+
 from connectionSAP import connection
+
 from GetDocument.getDocument import outBoundDelivery as getDeliveryNumber, documentVF01, checkError
+
+# First Way Point
 from TransactionSecond.VL01N import VL01N as gotoVL01N
 from TransactionSecond.detailsVL01N import detailsVL01N
 from TransactionSecond.ZTRDEnter import EnterZtrd
@@ -14,11 +18,39 @@ from TransactionSecond.batchDetails import batchInputVL01N
 from TransactionSecond.ZTRDDetails import TRD
 from TransactionSecond.PGI import PGI
 from TransactionSecond.processDocument import processDocument
+from TransactionSecond.checkrows import checkRows
+
+# Second Way Point
 from TransactionThird.VF01 import gotoCode as gotoVF01
 from TransactionThird.entereDeliverynumber import enterDeliveryNumber
 from TransactionThird.additionalDetails import additionalDetails
 from excelReader import excelReader
-from TransactionSecond.checkrows import checkRows
+
+# Third Way point
+from TransactionFourth.gotoIRN import IRN
+from TransactionFourth.documentnumber import docnum
+from TransactionFourth.GenIRN import GENIRN
+
+# Fourth Way Point
+from TransactionFifth.gotoEWAY import GOEWAY
+from TransactionFifth.GENEWAY import GENEWAY
+from TransactionFifth.ewaybilldetails import EWBdetails
+
+# Fifth Way Point
+from TransactionSixth.signDetialsZDSC import signDetails
+from TransactionSixth.detailsZDSC import details
+from TransactionSixth.gotoZDSC import gotoZDSC
+from TransactionSixth.displayZDSC import display
+from TransactionSixth.signZDSC import sign
+
+# Sixth Way Point
+from TransactionSeventh.gotocode import asn
+from TransactionSeventh.asnDetails import asnDetails
+
+import sys
+
+
+
 
 app = Flask(__name__)
 CORS(app)
@@ -26,6 +58,7 @@ CORS(app)
 @app.route('/main', methods=['POST','GET'])
 def main_api():
     try:
+        invoice_array = []
         uploaded_file = request.files.get('file')
         if not uploaded_file:
             return jsonify({'error': 'No file uploaded'}), 400
@@ -61,7 +94,7 @@ def main_api():
                         'error': 'Quantity is zero or negative'
                     })
                     continue
-
+                unqBillType = set(BillType)
                 gotoVL01N(session)
                 time.sleep(1)
                 
@@ -77,7 +110,7 @@ def main_api():
                 additionalDetails(session, LR_Date[i], LR_Number[i], Vehicle_Number[i], Number_of_Package[i])
 
                 invoice_number = documentVF01(session)
-                time.sleep(1)
+                invoice_array.append(invoice_number)
 
                 results.append({
                     'sales_order': SaleOrder[i],
@@ -86,6 +119,7 @@ def main_api():
                     'status': 'Success',
                     'error': None
                 })
+                # Start Invoice from 7000440441 to 7000440451
 
             except Exception as e:
                 results.append({
@@ -95,6 +129,29 @@ def main_api():
                     'status': 'Failed',
                     'error': str(e)
                 })
+        num_of_invoices = len(SaleOrder)
+        plant = Plant
+        print(invoice_array,Plant, LR_Date)
+
+
+        IRN(session)
+        docnum(session,invoice_array)
+        GENIRN(session)
+
+        GOEWAY(session)
+        EWBdetails(session,invoice_array)
+        GENEWAY(session)
+
+        # gotoZDSC(session)
+        # signDetails(session,LR_Date,invoice_array,plant)
+        # sign(session)
+        # gotoZDSC(session)
+        # details(session,LR_Date,invoice_array,plant)
+        # display(session,num_of_invoices)
+
+        # asn(session)
+        # asnDetails(session,invoice_array,plant,unqBillType)
+
 
         return jsonify({'results': results})
 
@@ -236,5 +293,5 @@ def has_delivery_quantity(session):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5050)
+    app.run(debug=True, host='0.0.0.0', port=5050, use_reloader = False)
  

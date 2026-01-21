@@ -1,13 +1,13 @@
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';  
 import "../style/Dispatch.css"
 import Form from '../components/Form';
 import Table from '../components/Table';
 import ExportButton from '../components/ExportButton';
 
 export default function ZDOM(dataForExport) {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [file, setFile] = useState(null);
     const [loading, setLoading] = useState(false);
     const [results, setResults] = useState([]);
@@ -17,13 +17,13 @@ export default function ZDOM(dataForExport) {
 
 
   
-    const handleNavigate = () => {
-        navigate('/ZTRD');
-    }
+    // const handleNavigate = () => {
+    //     navigate('/ZTRD');
+    // }
   
     return (
       <div className="app-container">
-        <h1>Automate ZDOM Dispatch SAP Process</h1>
+        <h1>Automate Domestic Sal Dispatch SAP Process</h1>
           <Form file={file} setFile={setFile} loading={loading} setLoading={setLoading} setError={setError} setGeneralError={setGeneralError} setResults={setResults} />
          
         {error && <div className="error-message">{error}</div>}
@@ -37,12 +37,12 @@ export default function ZDOM(dataForExport) {
         )}
         <div className='place'>
           <ExportButton selectedIndexes={selectedIndexes} results={results} />
-        <button
+        {/* <button
         className='btn-primary'
         type='button'
         onClick={handleNavigate}>
             <span>Go to ZTRD</span>
-        </button>
+        </button> */}
         </div>
       </div>
     );

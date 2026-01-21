@@ -1,7 +1,20 @@
 /* ===========================
   Main Container
 =========================== */
-.app-container {
+
+body {
+  background-image: url("/public/imagetruck.png"); /* if inside /public */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* .app-container {
   max-width: 800px;
   margin: 40px auto;
   font-family: Arial, sans-serif;
@@ -16,4 +29,4 @@
 @keyframes fadeInContainer {
   from { opacity: 0; transform: translateY(10px) }
   to { opacity: 1; transform: translateY(0) }
-} 
+}  */

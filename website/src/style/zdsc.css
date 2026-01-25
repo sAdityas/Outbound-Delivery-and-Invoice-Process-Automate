@@ -1,0 +1,218 @@
+/* =========================
+   Page (Glass Background)
+========================= */
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  border-radius: 2em;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+} 
+
+/* Back Button */
+.back-btn {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.15);
+  color: #e5edff;
+  padding: 0.35rem 1.4rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+  margin-top: 1em;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Title */
+.title {
+  flex: 1;
+  text-align: center;
+  margin-right: 4em;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   Form Wrapper
+========================= */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* =========================
+   Glass Form Box
+========================= */
+.form-box {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  width: 500px;
+  padding: 1.8rem;
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Form Title */
+.form-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #d8e7f7;
+  text-align: center;
+  margin-bottom: 1.3rem;
+}
+
+/* =========================
+   Fields
+========================= */
+.field {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+}
+
+.label {
+  display: block;
+  color: #cfd8f5;
+  margin-bottom: 0.35rem;
+  font-weight: 500;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 0.5rem;
+  padding: 0.55rem 0.8rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #eaf1ff;
+  outline: none;
+  font-size: 0.75rem;
+}
+
+.input::placeholder {
+  color: rgba(234, 241, 255, 0.65);
+}
+
+.input:focus {
+  border-color: #4f9cff;
+  box-shadow: 0 0 0 2px rgba(79,156,255,0.35);
+}
+
+/* =========================
+   Radio Group
+========================= */
+.radio-group {
+  margin-bottom: 1.2rem;
+}
+
+.radio-options {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  color: #e5edff;
+  font-weight: 500;
+}
+
+.radio-option input {
+  accent-color: #4f9cff;
+}
+
+/* =========================
+   Buttons
+========================= */
+.button-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.4rem;
+}
+
+.action-btn {
+  padding: 0.55rem 1.3rem;
+  background-image: linear-gradient(90deg, #223a63, #1a90c6 90%);
+  color: #e5edff;
+  border: none;
+  border-radius: 0.55rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+  background-size: 200% 200%;
+}
+
+.action-btn:hover {
+  animation: bgRotate 4s ease-in-out infinite;
+}
+
+.action-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #445a78;
+}
+
+/* =========================
+   Loader
+========================= */
+.loader-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 2px solid rgba(255,255,255,0.7);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* =========================
+   Animations
+========================= */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bgRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* =========================
+   Mobile Responsive
+========================= */
+@media (max-width: 768px) {
+  .form-box {
+    width: 100%;
+    padding: 1.4rem;
+  }
+
+  .title {
+    margin-right: 0;
+  }
+
+  .button-row {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}

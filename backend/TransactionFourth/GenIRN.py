@@ -3,11 +3,10 @@ import time
 
 
 def GENIRN(session):
-    
-    print('Selecting ALl')
-    session.findById('wnd[0]').sendVKey(5)
-    print('Generating IRN')
-    session.findById("wnd[0]/tbar[1]/btn[5]").press()
-    print('Clicking Generate IRN')
-    session.findById("wnd[0]/tbar[1]/btn[18]").press()
-    session.findById('wnd[0]').sendVKey(3)
+    try:
+        session.findById('wnd[0]').sendVKey(5)
+        session.findById("wnd[0]/tbar[1]/btn[5]").press()
+        session.findById("wnd[0]/tbar[1]/btn[18]").press()
+        session.findById('wnd[0]').sendVKey(3)
+    except:
+        raise Exception('Error while generating IRN')

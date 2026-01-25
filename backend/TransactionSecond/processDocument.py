@@ -1,4 +1,5 @@
 from connectionSAP import connection
+postalcodearray = []
 
 def processDocument(session, Partner_ID):
     try:
@@ -10,6 +11,10 @@ def processDocument(session, Partner_ID):
         partnerID.setFocus()
         partnerID.text = ''
         partnerID.text = Partner_ID
+        postalcode = session.findById("wnd[0]/usr/tabsTAXI_TABSTRIP_HEAD/tabpT\\08/ssubSUBSCREEN_BODY:SAPMV50A:2114/subSUBSCREEN_PARTNER_OVERVIEW:SAPLV09C:1000/tblSAPLV09CGV_TC_PARTNER_OVERVIEW/txtGVS_TC_DATA-REC-POST_CODE1[6,0]").text
+        
+        postalcodearray.append(postalcode)
+        print(postalcode)
         session.findById('wnd[0]/tbar[0]/btn[3]').press()
         session.findById('wnd[0]/usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\\01/ssubSUBSCREEN_BODY:SAPMV50A:1102/tblSAPMV50ATC_LIPS_OVER/btnRV50A-CHMULT[7,0]').setFocus()
         session.findById('wnd[0]/usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\\01/ssubSUBSCREEN_BODY:SAPMV50A:1102/tblSAPMV50ATC_LIPS_OVER/btnRV50A-CHMULT[7,0]').press()
@@ -36,6 +41,8 @@ def processDocument(session, Partner_ID):
         session.findById('wnd[0]/usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\\02/ssubSUBSCREEN_BODY:SAPMV50A:1104/tblSAPMV50ATC_LIPS_PICK/txtLIPSD-G_LFIMG[5,0]').setFocus()
         session.findById('wnd[0]/usr/tabsTAXI_TABSTRIP_OVERVIEW/tabpT\\02/ssubSUBSCREEN_BODY:SAPMV50A:1104/tblSAPMV50ATC_LIPS_PICK/txtLIPSD-G_LFIMG[5,0]').caretPosition = 0
         session.findById('wnd[0]/tbar[1]/btn[20]').press()
+
+        return postalcodearray
     except Exception as e:
         raise e  
  

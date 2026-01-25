@@ -79,8 +79,6 @@ def docnum(session,invoice_array):
         session.findById("wnd[0]/usr/radCREATE").select()
         print('Selecting Create E invoice')
         session.findById("wnd[0]").sendVKey(8)
-    except Exception as e:
-        
-        print(e)
-        return 'Error'
+    except:
+        raise Exception('Error while entering required fields ZEINVOICE')
 

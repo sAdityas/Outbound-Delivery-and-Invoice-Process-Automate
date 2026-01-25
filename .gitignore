@@ -117,3 +117,6 @@ instance/
 *.log
 *.ico
 *.spec
+Backup.py
+frontend/
+test/
